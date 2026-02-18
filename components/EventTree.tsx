@@ -4,7 +4,6 @@ import { EventNode, UnitType } from '@/types/career';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingDown, TrendingUp, Plus, Trash2 } from 'lucide-react';
 import { generateId } from '@/lib/storage';
-import { useState } from 'react';
 
 interface EventTreeProps {
   eventNode: EventNode;
@@ -17,9 +16,6 @@ export default function EventTree({
   unitType,
   onUpdate,
 }: EventTreeProps) {
-  const [showLeftAdd, setShowLeftAdd] = useState(false);
-  const [showRightAdd, setShowRightAdd] = useState(false);
-
   const addLeftChild = () => {
     const newNode: EventNode = {
       id: generateId('trauma'),
@@ -28,7 +24,6 @@ export default function EventTree({
       note: '',
     };
     onUpdate({ ...eventNode, left: newNode });
-    setShowLeftAdd(false);
   };
 
   const addRightChild = () => {
@@ -39,7 +34,6 @@ export default function EventTree({
       note: '',
     };
     onUpdate({ ...eventNode, right: newNode });
-    setShowRightAdd(false);
   };
 
   const updateLeftChild = (updatedLeft: EventNode) => {

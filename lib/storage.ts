@@ -75,13 +75,9 @@ export function calculateOrgRange(positions: Position[], unitType: 'age' | 'date
   const min = Math.min(...values);
   const max = Math.max(...values);
 
-  if (unitType === 'age') {
-    return `${min}-${max}`;
-  } else {
-    return `${min}-${max}`;
-  }
+  return `${min}-${max}`;
 }
 
 export function generateId(prefix: string): string {
-  return `${prefix}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  return `${prefix}_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
 }
